@@ -4,7 +4,7 @@ public class User {
 
     private int nickname;
     private String password;
-    private String PreguntaSeguridad;
+    private String answer;
     private Role rol;
     public static final char TIPO_ESTADO_ACTIVO = 'A';
     public static final char TIPO_ESTADO_INACTIVO= 'I';
@@ -23,13 +23,19 @@ public class User {
     public void setEstado(char estado) {
         this.estado = estado;
     }
-    public User(  int nickname,String password,Role rol,char  estado) {
-        this.rol = rol;
-        this.password = password;
-        this.nickname = nickname;
-        
-    }
-    public Role getRol() {
+    
+    
+   
+    public User(int nickname, String password, String answer,
+			Role rol, char estado) {
+		this.nickname = nickname;
+		this.password = password;
+		this.answer = answer;
+		this.rol = rol;
+		this.estado = estado;
+	}
+
+	public Role getRol() {
         return rol;
     }
 
@@ -55,18 +61,18 @@ public class User {
         this.password = password;
     }
 
-	public String getPreguntaSeguridad() {
-		return PreguntaSeguridad;
+	public String getSecurityAnswer() {
+		return this.answer;
 	}
 
-	public void setPreguntaSeguridad(String preguntaSeguridad) {
-		PreguntaSeguridad = preguntaSeguridad;
+	public void setSecurityAnswer(String answer) {
+		this.answer = answer;
 	}
 
 	@Override
 	public String toString() {
 		return "User [nickname=" + nickname + ", password=" + password
-				+ ", PreguntaSeguridad=" + PreguntaSeguridad + ", rol=" + rol
+				+ ", PreguntaSeguridad=" + answer + ", rol=" + rol
 				+ ", estado=" + estado + "]";
 	}
 

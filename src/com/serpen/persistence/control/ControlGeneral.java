@@ -13,7 +13,7 @@ public class ControlGeneral {
 	public ControlGeneral(Session sesion, Transaction transaction) {
 		
 		this.controlRole=new ControlRole(sesion, transaction);
-		this.controlUser=new ControlUser();
+		this.controlUser=new ControlUser(sesion,transaction);
 	}
 	
 	
