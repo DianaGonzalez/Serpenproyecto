@@ -14,7 +14,7 @@ import org.hibernate.Session;
  *
  * @author USER
  */
-public class testRolConsultar {
+public class TestRolConsultar {
      public static void main(String []args){
         Session sesion = HibernateUtil.getSessionFactory().openSession();
         Role role = (Role) sesion.load(Role.class, 1);

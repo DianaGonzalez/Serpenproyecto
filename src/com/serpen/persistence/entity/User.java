@@ -6,20 +6,16 @@ public class User {
     private String password;
     private String answer;
     private Role rol;
-    public static final char TIPO_ESTADO_ACTIVO = 'A';
-    public static final char TIPO_ESTADO_INACTIVO= 'I';
     private char  estado;
-    
-
+    public static final char TIPO_ESTADO_ACTIVO = 'A';
+   
     public User() {
        
 
    }
-
     public char getEstado() {
         return estado;
     }
-
     public void setEstado(char estado) {
         this.estado = estado;
     }
@@ -61,14 +57,13 @@ public class User {
         this.password = password;
     }
 
-	public String getSecurityAnswer() {
-		return this.answer;
-	}
 
-	public void setSecurityAnswer(String answer) {
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-
 	@Override
 	public String toString() {
 		return "User [nickname=" + nickname + ", password=" + password

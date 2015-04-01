@@ -8,6 +8,8 @@
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">1234</property>
     <mapping resource="com/serpen/persistence/map/role.hbm.xml"/>
-    <mapping resource="com/serpen/persistence/map/usuario.hbm.xml"/>
+    <mapping resource="com/serpen/persistence/map/user.hbm.xml"/>
+    <mapping resource="com/serpen/persistence/map/RoleHistory.hbm.xml"/>
+    <mapping resource="com/serpen/persistence/map/UserHistory.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

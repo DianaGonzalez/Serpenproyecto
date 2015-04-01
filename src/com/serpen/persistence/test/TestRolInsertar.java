@@ -13,13 +13,13 @@ import org.hibernate.Transaction;
  *
  * @author USER
  */
-public class testRolInsertar {
+public class TestRolInsertar {
     public static void main(String[] args) {
         try {
             Session sesion = HibernateUtil.getSessionFactory().openSession();
             Transaction transaction = sesion.beginTransaction();
             Role rol = (Role) sesion.load(Role.class, 5);
-            rol = new Role(2,"eliana" );    
+            rol = new Role(1,"eliana" );    
             sesion.save(rol);       
             transaction.commit();
             sesion.close();

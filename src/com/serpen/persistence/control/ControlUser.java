@@ -36,7 +36,7 @@ public class ControlUser {
 		user.setPassword(pasword);
 		user.setEstado('A');
 		user.setRol(role);
-		user.setSecurityAnswer(answer);
+		user.setAnswer(answer);
 		//sesion.save(rol);
 		session.save(user);
 		transaction.commit();

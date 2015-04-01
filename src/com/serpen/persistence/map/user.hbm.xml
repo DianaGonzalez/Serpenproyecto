@@ -6,6 +6,7 @@
         </id>    
         <property column="constraseña" name="password"  type="string"/>
         <property column="estado" name="estado"  type="character"/>
+        <property column="respuesta" name="answer" type="string"/>
         <many-to-one name="rol" column="id" />
     </class>
 </hibernate-mapping>

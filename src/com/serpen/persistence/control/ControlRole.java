@@ -52,7 +52,7 @@ public class ControlRole {
 		}
 	}
 	
-	public Role consult(int id) throws ErrorConnection{
+	public Role consultar(int id) throws ErrorConnection{
 
 		Role role = new Role();
 		role = (Role) sesion.load(Role.class,id);
@@ -90,7 +90,7 @@ public class ControlRole {
 		 */
 	}
 	
-	public void upDate(int nombre){
+	public void upDate(String nombre){
 		/*
 		 *al actualizar solo se podria hacer el nombre verdad
 		 */

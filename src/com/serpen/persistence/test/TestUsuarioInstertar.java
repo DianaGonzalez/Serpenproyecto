@@ -28,10 +28,11 @@ public class TestUsuarioInstertar {
              //rol.setId(1);
              //rol.setName("Andrea");
             User user = new User( );
-            user.setNickname(4);
-            user.setPassword("contraseÃ±a");
+            user.setNickname(2);
+            user.setPassword("mi contraseña");
             user.setEstado('A');
             user.setRol(role);
+            user.setAnswer("mi respuesta Seguridad");
             //sesion.save(rol);
             sesion.save(user);
             transaction.commit();
