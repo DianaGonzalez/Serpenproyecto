@@ -10,6 +10,8 @@ import com.serpen.persistence.conf.HibernateUtil;
 import com.serpen.persistence.entity.Role;
 
 public class ControlRole {
+	
+	//-------------------------------HOLAAAAAA--------------------
 
 	Session sesion;
 	Transaction transaction;

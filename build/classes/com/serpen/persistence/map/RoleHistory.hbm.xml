@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/04/2015 12:52:13 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.serpen.persistence.entity.RoleHistory" table="historial_rol">
+        <id name="id"   type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="role" type="int">
+            <column name="rol" />
+        </property>
+        <property name="name" type="string">
+            <column name="nombre" />
+        </property>
+    </class>
+</hibernate-mapping>

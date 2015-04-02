@@ -3,8 +3,6 @@
 
 /* This file prefixes all rules with the theme name to avoid causing conflicts with other themes. */
 /* The actual styles should be defined in serpen.scss */
-
-//Nombre del tema
 .serpen {
   @include addons;
   @include serpen;
