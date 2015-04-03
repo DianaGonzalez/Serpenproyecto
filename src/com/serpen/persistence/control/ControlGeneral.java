@@ -7,14 +7,24 @@ public class ControlGeneral {
 	
 	private ControlRole controlRole;
 	private ControlUser controlUser;
+	private ControlHistoryRole controlHistoryRole;
+	private ControlHistoryUser controlHistoryUser;
 	
 	
 	
-	public ControlGeneral(Session sesion, Transaction transaction) {
+	public ControlGeneral(ControlRole controlRole, ControlUser controlUser,
+			ControlHistoryRole controlHistoryRole,
+			ControlHistoryUser controlHistoryUser) {
 		
-		this.controlRole=new ControlRole(sesion, transaction);
-		this.controlUser=new ControlUser(sesion,transaction);
+		this.controlRole = controlRole;
+		this.controlUser = controlUser;
+		this.controlHistoryRole = controlHistoryRole;
+		this.controlHistoryUser = controlHistoryUser;
 	}
+	
+	
+	
+
 	
 	
 

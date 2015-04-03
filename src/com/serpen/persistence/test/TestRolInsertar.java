@@ -19,7 +19,7 @@ public class TestRolInsertar {
             Session sesion = HibernateUtil.getSessionFactory().openSession();
             Transaction transaction = sesion.beginTransaction();
             Role rol = (Role) sesion.load(Role.class, 5);
-            rol = new Role(1,"eliana" );    
+            rol = new Role(1,"julio" );    
             sesion.save(rol);       
             transaction.commit();
             sesion.close();

@@ -8,14 +8,12 @@ import org.hibernate.Transaction;
 import com.serpen.error.connection.ErrorConnection;
 import com.serpen.persistence.conf.HibernateUtil;
 import com.serpen.persistence.entity.Role;
+import com.serpen.persistence.entity.RoleHistory;
 
 public class ControlRole {
 	
-	//-------------------------------HOLAAAAAA--------------------
-
 	Session sesion;
 	Transaction transaction;
-
 
 	public ControlRole(Session sesion, Transaction transaction) {
 		this.sesion = sesion;
@@ -24,13 +22,13 @@ public class ControlRole {
 
 	public void insert(String name) throws ErrorConnection{
 
-		Role rol = new Role();
+		Role role = new Role();
 		
 
-			rol = (Role) sesion.load(Role.class, 5);
-			rol = new Role();
-			rol.setName(name);
-			sesion.save(rol);       
+			role = (Role) sesion.load(Role.class, 5);
+			role = new Role();
+			role.setName(name);
+			sesion.save(role);       
 			transaction.commit();
 //			sesion.close();
 			
@@ -39,22 +37,22 @@ public class ControlRole {
 
 	public List<Role> list() throws ErrorConnection{
 
-		List<Role> listaRol = sesion.createQuery(
+		List<Role> listRole = sesion.createQuery(
 				"from rol " +
 				"in class com.serpen.persistence.entity.Role").list();
-		for (int i = 0; i<listaRol.size(); i++) {
-			Role role = listaRol.get(i);
+		for (int i = 0; i<listRole.size(); i++) {
+			Role role = listRole.get(i);
 			System.out.println(role);
 		}
 		
-		if(!listaRol.isEmpty()){
-			return listaRol;
+		if(!listRole.isEmpty()){
+			return listRole;
 		}else{
 			throw new ErrorConnection("No hay ningun dato en la entidad rol");
 		}
 	}
 	
-	public Role consultar(int id) throws ErrorConnection{
+	public Role consult(int id) throws ErrorConnection{
 
 		Role role = new Role();
 		role = (Role) sesion.load(Role.class,id);
@@ -84,18 +82,33 @@ public class ControlRole {
 	
 	
 	
-	public void remove(){
-		/*
-		 * nose si el romove se contrulla solo para el usuario
-		 * o tambien para el rol y de ser asi este si seria un 
-		 * delete???
-		 */
+	public void remove(String name) throws ErrorConnection{
+		
+	//----------- Falta (o"o) ---------------------
+        Role role= new Role();
+//        role.setId(id);
+        role.setName(name);
+        RoleHistory roleHistory = new RoleHistory();
+        roleHistory.setName(role.getName());
+        roleHistory.setRole(role.getId());
+        
+        sesion.delete(role);
+        sesion.save(roleHistory);
+        transaction.commit();
+        //sesion.close();	
+        throw new ErrorConnection("No se encuentra el rol que se desea eliminar");
 	}
 	
-	public void upDate(String nombre){
-		/*
-		 *al actualizar solo se podria hacer el nombre verdad
-		 */
+	public void upDate(int id,String nombre)throws ErrorConnection{
+		
+		Role role = new Role();
+		role.setId(id);
+		role.setName(nombre);  
+		sesion.update(role);
+		transaction.commit();
+//		sesion.close();
+		
+		throw new ErrorConnection("El rol ingresado no se encuentra");
 	}
 
 	public static void main(String[] args) {
@@ -103,9 +116,12 @@ public class ControlRole {
 		Session sesion = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = sesion.beginTransaction();
         ControlRole rol = new ControlRole(sesion, transaction);
+        
         try {
-			rol.insert("Diana");
-	        sesion.close();
+			
+        	rol.remove("Diana");
+			sesion.close();
+			
 
 		} catch (ErrorConnection e) {
 			// TODO Auto-generated catch block
