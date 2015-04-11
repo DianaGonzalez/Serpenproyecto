@@ -12,6 +12,8 @@ import com.serpen.persistence.entity.RoleHistory;
 
 public class ControlRole {
 	
+	//*************************saddddddddd************************
+	
 	Session sesion;
 	Transaction transaction;
 
@@ -23,7 +25,6 @@ public class ControlRole {
 	public void insert(String name) throws ErrorConnection{
 
 		Role role = new Role();
-		
 
 			role = (Role) sesion.load(Role.class, 5);
 			role = new Role();
@@ -119,7 +120,7 @@ public class ControlRole {
         
         try {
 			
-        	rol.remove("Diana");
+        	rol.remove("jose");
 			sesion.close();
 			
 
